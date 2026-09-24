@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- TikTok Pixel Code Start -->
+	<!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
@@ -119,6 +119,31 @@ function openWhatsApp(message) {
 
     return false;
   };
+})();
+</script>
+
+
+<script>
+(function () {
+  var phone = "972568753111";
+  var message = "مرحبا، أريد طلب المنتج";
+  var encoded = encodeURIComponent(message);
+  var appUrl = "whatsapp://send?phone=" + phone + "&text=" + encoded;
+  var webUrl = "https://wa.me/" + phone + "?text=" + encoded;
+  var mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      if (mobile) {
+        window.location.href = appUrl;
+        setTimeout(function () {
+          if (!document.hidden) window.location.href = webUrl;
+        }, 1400);
+      } else {
+        window.location.href = webUrl;
+      }
+    }, 200);
+  });
 })();
 </script>
 
